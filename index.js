@@ -18,13 +18,13 @@ const users = [
     {
         id: uuidv4(),
         name: 'bob',
-        favoriteColor: 'blue',
+        favoriteColor: 'green',
         timestamp: 1639996383375
     },
     {
         id: uuidv4(),
         name: 'bob',
-        favoriteColor: 'yellow',
+        favoriteColor: 'blue',
         timestamp: 1639996391251
     }
 ]

@@ -1,9 +1,12 @@
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
-var cors = require('cors');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const port = 3000;
-app.use(cors())
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const users = [
     {
@@ -29,17 +32,17 @@ const groups = [
     {
         id: uuidv4(),
         name: 'red-group',
-        usersIds: [uuidv4(),uuidv4(),uuidv4()],
+        usersIds: [],
      },
     {
         id: uuidv4(),
         name: 'blue-group',
-        usersIds: [uuidv4(),uuidv4(),uuidv4()],
+        usersIds: [],
     },
     {
         id: uuidv4(),
         name: 'yellow-group',
-        usersIds: [uuidv4(),uuidv4(),uuidv4()],
+        usersIds: [],
     }
 ]
 
@@ -48,7 +51,7 @@ app.post("/users", (req, res) => {
     const timestamp = Date.now();
     const user = {...req.body, id, timestamp};
     users.push(user)
-    return res.json({id})
+    return res.json({user})
 });
 
 app.get("/users", (req, res) => {

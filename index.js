@@ -36,12 +36,12 @@ const groups = [
      },
     {
         id: uuidv4(),
-        name: 'blue-group',
+        name: 'green-group',
         usersIds: [],
     },
     {
         id: uuidv4(),
-        name: 'yellow-group',
+        name: 'blue-group',
         usersIds: [],
     }
 ]

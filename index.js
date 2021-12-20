@@ -11,19 +11,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const users = [
     {
         id: uuidv4(),
-        name: 'bob',
+        name: 'Bob',
         favoriteColor: 'red',
         timestamp: 1639996342089
      },
     {
         id: uuidv4(),
-        name: 'bob',
+        name: 'Tom',
         favoriteColor: 'green',
         timestamp: 1639996383375
     },
     {
         id: uuidv4(),
-        name: 'bob',
+        name: 'Jon',
         favoriteColor: 'blue',
         timestamp: 1639996391251
     }

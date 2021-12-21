@@ -33,7 +33,7 @@ const groups = [
         id: uuidv4(),
         name: 'red-group',
         usersIds: [],
-     },
+    },
     {
         id: uuidv4(),
         name: 'green-group',
@@ -52,6 +52,23 @@ app.post("/users", (req, res) => {
     const user = {...req.body, id, timestamp};
     users.push(user)
     return res.json({user})
+});
+
+app.delete("/groups/:id/removeUser", (req, res) => {
+    const removeUser = {...req.body};
+    const selectedGroup = groups.filter(e => e.id == req.params.id);
+    const item = selectedGroup[0].usersIds.indexOf(removeUser.id);
+    if (item > -1) {
+        selectedGroup[0].usersIds.splice(item, 1);
+    }
+    return res.json({removeUser})
+});
+
+app.post("/groups/:id/addUser", (req, res) => {
+    const newUser = {...req.body};
+    const selectedGroup = groups.filter(e => e.id == req.params.id);
+    selectedGroup[0].usersIds.push(newUser.id);
+    return res.json({newUser})
 });
 
 app.get("/users", (req, res) => {
